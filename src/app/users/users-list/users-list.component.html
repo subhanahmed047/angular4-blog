@@ -1,3 +1,40 @@
-<p>
-  users-list works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <a [routerLink]="['/users/add']" class="btn btn-success pull-right"><i
+          class="glyphicon glyphicon-plus-sign"></i> Add New User</a>
+      </div>
+    </div>
+    <table class="table table-bordered table-striped table-hover table-responsive ">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td><a href="mailto:{{user.email}}" class="btn btn-link">{{user.email}}</a></td>
+        <td>{{user.phone? user.phone: '-'}}</td>
+        <th>
+          <a [routerLink]="['']" class="text-primary" style="margin-right: 8px;" title="Edit User">
+            <i class="glyphicon glyphicon-pencil"></i>
+          </a>
+          <a [routerLink]="['']" class=text-danger title="Delete User">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </th>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

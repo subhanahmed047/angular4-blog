@@ -1,26 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
 
-import { AppComponent } from './app.component';
-import { UsersListComponent } from './users/users-list/users-list.component';
-import { UserAddComponent } from './users/user-add/user-add.component';
-import { UserEditComponent } from './users/user-edit/user-edit.component';
-import { PostsListComponent } from './posts/posts-list/posts-list.component';
-import { PostAddComponent } from './posts/post-add/post-add.component';
-import { PostEditComponent } from './posts/post-edit/post-edit.component';
-import { SinglePostComponent } from './posts/single-post/single-post.component';
-import { ProfileComponent } from './users/profile/profile.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {AppComponent} from "./app.component";
+import {UsersListComponent} from "./users/users-list/users-list.component";
+import {UserAddComponent} from "./users/user-add/user-add.component";
+import {UserEditComponent} from "./users/user-edit/user-edit.component";
+import {PostsListComponent} from "./posts/posts-list/posts-list.component";
+import {PostAddComponent} from "./posts/post-add/post-add.component";
+import {PostEditComponent} from "./posts/post-edit/post-edit.component";
+import {SinglePostComponent} from "./posts/single-post/single-post.component";
+import {ProfileComponent} from "./users/profile/profile.component";
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {NavigationComponent} from "./navigation/navigation.component";
+import {HomeComponent} from "./home/home.component";
+import {UsersService} from "./users/users.service";
+import {PostsService} from "./posts/posts.service";
+import { PostViewComponent } from './posts/post-view/post-view.component';
 
 const appRoutes: Routes = [
-  {path: '', component: PostsListComponent},
-  {path: 'posts/add', component: PostAddComponent},
+  {path: '', component: HomeComponent},
+  {path: 'posts', component: PostsListComponent},
+  {path: 'posts/add', component: PostAddComponent },
   {path: 'posts/edit/:id', component: PostEditComponent},
-  {path: 'posts/view/:id', component: SinglePostComponent},
+  {path: 'posts/view/:id', component: PostViewComponent},
+  {path: 'users', component: UsersListComponent},
   {path: 'users/add', component: UserAddComponent},
   {path: 'users/edit/:id', component: UserEditComponent},
-  {path: 'user/profile/:id', component: ProfileComponent}
+  {path: 'user/profile/:id', component: ProfileComponent},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -34,7 +42,10 @@ const appRoutes: Routes = [
     PostEditComponent,
     SinglePostComponent,
     ProfileComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavigationComponent,
+    HomeComponent,
+    PostViewComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +54,10 @@ const appRoutes: Routes = [
       //{enableTracing: true}
     )
   ],
-  providers: [],
+  providers: [
+    UsersService,
+    PostsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,12 @@
-<p>
-  posts-list works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <a [routerLink]="['/posts/add']" class="btn btn-success pull-right"><i
+          class="glyphicon glyphicon-plus-sign"></i> Submit a Post</a>
+      </div>
+    </div>
+    <app-single-post *ngFor="let post of posts" [post]="post"></app-single-post>
+  </div>
+</div>
+

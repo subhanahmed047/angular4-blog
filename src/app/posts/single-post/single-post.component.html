@@ -1,3 +1,32 @@
-<p>
-  single-post works!
-</p>
+<div class="row">
+  <div class="col-md-9">
+    <h4><strong><a href="#">{{post.title}}</a></strong></h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2"><a  class="thumbnail">
+    <img [src]="post.featured_image" [alt]="post.title" class="img-responsive"
+         style="
+          display: block;
+          width: 260px;
+          height: 120px;
+          object-fit: cover;">
+  </a>
+
+  </div>
+  <div class="col-md-6">
+    <p class="text-justify">{{post.content.slice(0, 250)}}...</p>
+    <p><a class="btn btn-default" [routerLink]="['/posts/view', post.id]">Read more</a>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-10">
+    <p><i class="glyphicon glyphicon-user"></i> by <a [routerLink]="['/users/view', post.author.id]">{{post.author.name}}</a>
+      | <i class="glyphicon glyphicon-calendar"></i> {{post.created.toDateString()}}
+      | <i class="glyphicon glyphicon-tags"></i> Tags
+      : <span class="label label-default" *ngFor="let tag of post.tags" style="margin-right: 2px;">{{tag.title}}</span>
+    </p>
+    <hr>
+  </div>
+</div>
