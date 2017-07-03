@@ -1,5 +1,12 @@
 # Blog
 
+The following topics are covered in this blog application:
+* Routing 
+* Creation and Navigation of Components
+* Services & Dependency Injections
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
 ## Development server
