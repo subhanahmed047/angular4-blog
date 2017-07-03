@@ -74,4 +74,10 @@ export class PostsService {
     return this._posts.find(post => post.id == id);
   }
 
+  public getPostsOf(user_id: number): Post[]{
+    return this._posts.filter(function (post) {
+      return post.author.id == user_id;
+    })
+  }
+
 }

@@ -1,0 +1,16 @@
+<ul class="media-list">
+  <li class="media" *ngFor="let post of posts">
+    <div class="media-left">
+      <a [routerLink]="['/posts/view', post.id]">
+        <img class="media-object" style="width: 64px; height:64px;" [src]="post.featured_image" [alt]="post.title">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading"><a [routerLink]="['/posts/view', post.id]">{{post.title}}</a></h4>
+      {{post.content.slice(0, 150)}}...
+      <br>
+      <b>Posted on: <span class="text-muted">{{post.created.toDateString()}}</span></b>
+    </div>
+    <hr>
+  </li>
+</ul>

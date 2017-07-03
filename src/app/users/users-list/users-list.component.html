@@ -22,9 +22,12 @@
         <td>{{user.id}}</td>
         <td>{{user.name}}</td>
         <td>{{user.username}}</td>
-        <td><a href="mailto:{{user.email}}" class="btn btn-link">{{user.email}}</a></td>
+        <td>{{user.email}}</td>
         <td>{{user.phone? user.phone: '-'}}</td>
         <th>
+          <a [routerLink]="['/user/profile', user.id]" class="text-info" style="margin-right: 8px;" title="View Profile">
+            <i class="glyphicon glyphicon-user"></i>
+          </a>
           <a [routerLink]="['']" class="text-primary" style="margin-right: 8px;" title="Edit User">
             <i class="glyphicon glyphicon-pencil"></i>
           </a>

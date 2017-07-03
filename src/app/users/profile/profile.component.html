@@ -1,3 +1,32 @@
-<p>
-  profile works!
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="text-center">
+      <img
+        [src]="user.profile_image"
+        name="aboutme" width="200" height="200" border="0" class="img-circle">
+      <h3 class="media-heading">{{user.name}}
+        <small>@{{user.username}}</small>
+      </h3>
+      <p class="text-muted">E: {{user.email}}</p>
+      <p *ngIf="user.phone" class="text-muted">P: {{user.phone}}</p>
+      <span><strong>Interestes: </strong></span>
+      <div *ngIf="user.interests; else noInterests" >
+        <span class="label label-success" *ngFor="let interest of user.interests" style="margin-right: 3px;">{{interest}}</span>
+      </div>
+      <ng-template #noInterests><span class="text-muted">User has not specified any interests</span></ng-template>
+    </div>
+    <hr>
+    <div>
+      <p class="text-left" *ngIf="user.about"><strong>BIO: </strong><br>
+        {{user.about}}
+      </p>
+      <br>
+      <div class="panel panel-default">
+        <div class="panel-heading">Posts by {{user.name.toUpperCase()}}</div>
+        <div class="panel-body">
+          <app-user-posts [user]="user"></app-user-posts>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

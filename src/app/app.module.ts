@@ -17,6 +17,7 @@ import {HomeComponent} from "./home/home.component";
 import {UsersService} from "./users/users.service";
 import {PostsService} from "./posts/posts.service";
 import { PostViewComponent } from './posts/post-view/post-view.component';
+import { UserPostsComponent } from './users/user-posts/user-posts.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     NavigationComponent,
     HomeComponent,
-    PostViewComponent
+    PostViewComponent,
+    UserPostsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-9">
-    <h4><strong><a href="#">{{post.title}}</a></strong></h4>
+    <h4><strong><a [routerLink]="['/posts/view', post.id]">{{post.title}}</a></strong></h4>
   </div>
 </div>
 <div class="row">
@@ -22,7 +22,7 @@
 </div>
 <div class="row">
   <div class="col-md-10">
-    <p><i class="glyphicon glyphicon-user"></i> by <a [routerLink]="['/users/view', post.author.id]">{{post.author.name}}</a>
+    <p><i class="glyphicon glyphicon-user"></i> by <a [routerLink]="['/user/profile', post.author.id]">{{post.author.name}}</a>
       | <i class="glyphicon glyphicon-calendar"></i> {{post.created.toDateString()}}
       | <i class="glyphicon glyphicon-tags"></i> Tags
       : <span class="label label-default" *ngFor="let tag of post.tags" style="margin-right: 2px;">{{tag.title}}</span>
