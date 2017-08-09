@@ -1,4 +1,4 @@
-import {Tag} from "../shared/Tag.model";
+import {Tag} from "../shared/tag.model";
 import {User} from "../users/user.model";
 export class Post {
 

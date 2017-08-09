@@ -2,7 +2,9 @@ import {Injectable} from "@angular/core";
 
 import {UsersService} from "../users/users.service";
 import {Post} from "./post.model";
-import {Tag} from "../shared/Tag.model";
+import {Tag} from "../shared/tag.model";
+import {forEach} from "@angular/router/src/utils/collection";
+import EventEmitter = NodeJS.EventEmitter;
 
 @Injectable()
 export class PostsService {
@@ -66,6 +68,10 @@ export class PostsService {
   constructor(private _usersService: UsersService) {
   }
 
+  add(post: Post){
+    this._posts.push(post);
+  }
+
   getPosts(): Post[] {
     return this._posts.slice();
   }
@@ -74,10 +80,17 @@ export class PostsService {
     return this._posts.find(post => post.id == id);
   }
 
-  public getPostsOf(user_id: number): Post[]{
+  public getPostsOf(user_id: number): Post[] {
     return this._posts.filter(function (post) {
       return post.author.id == user_id;
     })
+  }
+
+  public search(keyword: string): Post[] {
+    let posts = this.getPosts();
+    return posts.filter(function (post) {
+      return (post.title.match(new RegExp(keyword, 'gi')));
+    });
   }
 
 }

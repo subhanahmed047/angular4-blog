@@ -10,43 +10,40 @@
           class="glyphicon glyphicon-circle-arrow-left"></i> Cancel </a>
       </div>
     </div>
-    <form class="form-horizontal">
-      <div class="col-sm-8">
+    <form class="form-horizontal" (submit)="onSubmit(form)" #form="ngForm">
+      <div class="col-sm-8 col-sm-offset-2">
         <div class="form-group">
 
-          <label for="inputTitle" class="col-lg-2 control-label">Title</label>
+          <label for="title" class="col-lg-2 control-label">Title</label>
           <div class="col-lg-10">
-            <input type="text" class="form-control" id="inputTitle" >
+            <input type="text" class="form-control" id="title" name="title" ngModel>
           </div>
         </div>
         <div class="form-group">
-          <label for="textArea" class="col-lg-2 control-label">Content</label>
+          <label for="content" class="col-lg-2 control-label">Content</label>
           <div class="col-lg-10">
-            <textarea class="form-control" rows="3" id="textArea"></textarea>
+            <textarea class="form-control" rows="3" id="content" name="content" ngModel></textarea>
           </div>
         </div>
         <div class="form-group">
-          <label for="tagsInput" class="col-lg-2 control-label">Tags</label>
+          <label for="tags" class="col-lg-2 control-label">Tags</label>
           <div class="col-lg-10">
-            <input type="text" id="tagsInput" class="form-control">
+            <input type="text" id="tags" class="form-control" name="tags" ngModel>
             <span class="help-block">Comma (,) separated list of tags</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="featuredImage" class="col-lg-2 control-label">Featured Image</label>
+          <div class="col-lg-10">
+            <input type="text" id="featuredImage" class="form-control" name="featuredImage" ngModel>
+            <span class="help-block">Add a URL of your image</span>
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
-            <button type="reset" class="btn btn-default">Cancel</button>
+            <a type="reset" class="btn btn-default" routerLink="/posts">Cancel</a>
             <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="well">
-          <div class="form-group">
-            <label for="imageInput" class="col-lg-2 control-label">Featured Image</label>
-            <div class="col-lg-10">
-              <input type="file" id="imageInput" class="form-control">
-            </div>
           </div>
         </div>
       </div>

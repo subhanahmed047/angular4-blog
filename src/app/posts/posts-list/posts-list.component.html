@@ -6,7 +6,11 @@
           class="glyphicon glyphicon-plus-sign"></i> Submit a Post</a>
       </div>
     </div>
-    <app-single-post *ngFor="let post of posts" [post]="post"></app-single-post>
+    <div *ngIf="searchQuery">
+      <span *ngIf="posts" class="text-muted text-center">{{posts.length}} Posts found for search term: {{searchQuery}}</span>
+    </div>
+    <hr>
+    <app-single-post *ngFor="let post of posts.reverse()" [post]="post"></app-single-post>
   </div>
 </div>
 
